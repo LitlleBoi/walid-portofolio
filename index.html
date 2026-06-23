@@ -313,20 +313,29 @@
         .project-links {
             display: flex;
             gap: 1rem;
-            margin-top: 0.5rem;
-        }
+            margin-top: 0.5rem;\n        }
 
         .project-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.2rem;
+            border-radius: 999px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            background: rgba(56, 189, 248, 0.08);
             color: var(--accent);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
             cursor: none;
         }
 
         .project-links a:hover {
-            color: var(--accent2);
+            color: white;
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-1px);
         }
 
         .experience-section {
@@ -645,16 +654,16 @@
         <h2>Mijn Projecten</h2>
         <div class="project-grid">
             <div class="project-card tilt-card">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&auto=format&fit=crop');"></div>
+                <div class="project-image" style="background-image: url('https://raw.githubusercontent.com/LitlleBoi/love-u-festival/main/assets/kaart_festival_no_markers.svg');"></div>
                 <div class="project-content">
-                    <h3>Webshop op maat</h3>
-                    <p>Een volledige e-commerce oplossing met PHP & MySQL. Winkelwagen, betalingen en admin paneel.</p>
+                    <h3>Love U Festival</h3>
+                    <p>Festival-app voor nieuwe studenten in Utrecht. Inclusief interactieve kaart, QR-code installaties en multi-language UI.</p>
                     <div class="tags">
-                        <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">JavaScript</span><span class="tag">CSS</span>
+                        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
                     </div>
                     <div class="project-links">
-                        <a href="#">Live demo</a>
-                        <a href="#">GitHub</a>
+                        <a href="https://love-u-festival.onrender.com" target="_blank">Live demo</a>
+                        <a href="https://github.com/LitlleBoi/love-u-festival" target="_blank">GitHub</a>
                     </div>
                 </div>
             </div>
