@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="shortcut icon" href="favicon.png" type="image/png">
-    <title>Portfolio - Jouw Naam</title>
+    <title>Portfolio - Walid Salhi</title>
     <style>
         * {
             margin: 0;
@@ -26,7 +26,6 @@
             --radius: 16px;
         }
 
-        /* Verberg standaard cursor */
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: var(--bg);
@@ -36,7 +35,6 @@
             cursor: none;
         }
 
-        /* Toon standaard cursor alleen op tekstvelden en textarea */
         input, textarea {
             cursor: auto;
         }
@@ -489,15 +487,55 @@
         .skill-php { background: #777bb4; }
         .skill-mysql { background: #00758f; }
         .skill-git { background: #f05032; }
+        .skill-figma { background: #a259ff; }
 
         .contact-section {
             padding: 4rem 0;
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 1.5rem 0 2rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--surface);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: border-color 0.3s, transform 0.2s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+        }
+
+        .contact-item a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
         .contact-form {
             max-width: 600px;
-            margin: 2rem auto 0;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
@@ -544,7 +582,7 @@
             min-height: 1.5rem;
         }
 
-        /* ========== MODAL POPUP ========== */
+        /* ========== MODAL POPUP - VASTE GROOTTE ========== */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -569,11 +607,12 @@
 
         .modal {
             width: min(1100px, 100%);
+            height: 600px;
+            max-height: 90vh;
             background: var(--surface);
             border-radius: 24px;
             box-shadow: 0 40px 120px rgba(0,0,0,0.45);
             overflow: hidden;
-            max-height: 90vh;
             display: grid;
             grid-template-columns: 1fr 360px;
             gap: 1px;
@@ -588,6 +627,7 @@
         @media (max-width: 768px) {
             .modal {
                 grid-template-columns: 1fr;
+                height: 80vh;
                 max-height: 95vh;
             }
         }
@@ -598,8 +638,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 360px;
             overflow: hidden;
+            height: 100%;
         }
 
         .modal-image-panel img {
@@ -607,6 +647,25 @@
             max-height: 100%;
             object-fit: contain;
             transition: transform 0.3s ease;
+        }
+
+        /* ===== AFBEELDINGSTELLER ===== */
+        .modal-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(6px);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+            border: 1px solid rgba(255,255,255,0.1);
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: 0.5px;
         }
 
         .modal-nav {
@@ -644,6 +703,7 @@
             flex-direction: column;
             gap: 1rem;
             overflow-y: auto;
+            height: 100%;
         }
 
         .modal-close {
@@ -862,7 +922,6 @@
             transition: width 0.3s, height 0.3s, border-color 0.3s, background 0.3s;
         }
 
-        /* Uitbreiding bij hover op interactieve elementen */
         .cursor.hover, .cursor-follower.hover {
             width: 20px;
             height: 20px;
@@ -928,17 +987,29 @@
     <section id="home" class="hero">
         <div class="profile-pic-wrapper">
             <img class="profile-pic" src="assets/img/profile.jpg" alt="Jouw gezicht" id="profileImg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div style="display: none; width:180px; height:180px; border-radius:50%; background:var(--gradient); align-items:center; justify-content:center; font-size:4rem; font-weight:700; color:white;">JN</div>
+            <div style="display: none; width:180px; height:180px; border-radius:50%; background:var(--gradient); align-items:center; justify-content:center; font-size:4rem; font-weight:700; color:white;">WS</div>
         </div>
 
         <h1 class="typewriter" id="typewriter"></h1>
         <p>
-            Een creatieve full-stack developer die moderne weboplossingen bouwt met <strong>HTML, CSS, JavaScript en PHP</strong>.
-            Ik combineer strakke designs met robuuste backend-code.
+            Ik bouw graag moderne websites en webapps – van het ontwerp tot de achterkant. Mijn gereedschap: HTML, CSS, JavaScript en PHP. Voor mij draait het om twee dingen: een website die er strak uitziet én die gewoon goed werkt. Geen franje zonder functie.
         </p>
         <div class="hero-buttons">
             <a href="https://github.com/LitlleBoi" target="_blank" class="github-btn">
                 ⬡ GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/walid-salhi-090622395/" target="_blank" class="btn btn-outline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                </svg>
+                LinkedIn
+            </a>
+            <a href="CV.pdf" download class="btn btn-outline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                </svg>
+                Download CV
             </a>
             <button class="btn btn-primary" data-target="projecten">Bekijk projecten</button>
             <button class="btn btn-outline" data-target="contact">Neem contact op</button>
@@ -952,10 +1023,10 @@
         <div class="about-content">
             <div class="about-text">
                 <p>
-                    Hallo! Ik ben een passioneerde full-stack developer met een sterke focus op het creëren van gebruiksvriendelijke en performante weboplossingen. Met meer dan 3 jaar ervaring in web development, specialiseer ik me in het combineren van strakke frontend designs met robuuste backend systems.
+                    Hallo! Hey, ik ben Walid Salhi, 17 jaar en gek op software developing. Naast mijn studie werk ik bij Gamma. Hier leer ik hoe ik met klanten om moet gaan en problemen oplossen.
                 </p>
                 <p>
-                    Ik ben graag aan het leren en volg de laatste trends in web development nauwlettend. Of het nu gaat om vanilla JavaScript, moderne frameworks of server-side logica met PHP – ik ben altijd klaar voor een nieuwe uitdaging.
+                    Verder ben ik veel met voetbal bezig, zowel op het veld als op zaal.
                 </p>
                 <div class="about-highlights">
                     <div class="highlight-item">
@@ -1035,45 +1106,17 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card tilt-card" data-project="retro-game">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1614294148960-064c9b7b5c44?w=600&auto=format&fit=crop');"></div>
+            <div class="project-card tilt-card" data-project="cursorkiosk">
+                <div class="project-image" style="background-image: url('assets/img/startscherm.png'); background-position: center; background-size: cover;"></div>
                 <div class="project-content">
-                    <h3>Retro Game</h3>
-                    <p>Een browser-game met vanilla JavaScript en Canvas API. Realtime animaties en scorebord.</p>
+                    <h3>Cursor Kiosk</h3>
+                    <p>Interactieve kiosk voor evenementen en tentoonstellingen. Gebruikers kunnen de cursor bewegen en interacties uitvoeren op een touchscreen-achtige interface.</p>
                     <div class="tags">
-                        <span class="tag">JavaScript</span><span class="tag">HTML5 Canvas</span><span class="tag">CSS</span>
+                        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Kiosk</span>
                     </div>
                     <div class="project-links">
-                        <a href="#">Live demo</a>
-                        <a href="#">GitHub</a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card tilt-card" data-project="css-showcase">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&auto=format&fit=crop');"></div>
-                <div class="project-content">
-                    <h3>Creative CSS Showcase</h3>
-                    <p>Interactieve pagina die moderne CSS-kracht toont: 3D-transformaties, animaties en thema's.</p>
-                    <div class="tags">
-                        <span class="tag">CSS</span><span class="tag">HTML</span><span class="tag">JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#">Live demo</a>
-                        <a href="#">GitHub</a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card tilt-card" data-project="blog-platform">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&auto=format&fit=crop');"></div>
-                <div class="project-content">
-                    <h3>Blog Platform</h3>
-                    <p>Dynamisch blog met authenticatie, reacties en REST API. Frontend in JS, backend in PHP.</p>
-                    <div class="tags">
-                        <span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">REST API</span><span class="tag">MySQL</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#">Live demo</a>
-                        <a href="#">GitHub</a>
+                        <a href="https://u240787.gluwebsite.nl/kiosk/" target="_blank">Live demo</a>
+                        <a href="https://github.com/LitlleBoi/cursorkiosk" target="_blank">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -1087,25 +1130,33 @@
             <div class="timeline-item left">
                 <div class="timeline-content tilt-card">
                     <div class="timeline-date">2024 – heden</div>
-                    <div class="timeline-title">Full-stack Developer</div>
-                    <div class="timeline-company">TechCorp BV, Amsterdam</div>
-                    <div class="timeline-desc">Ontwikkelen van schaalbare webapplicaties met PHP/Laravel en Vue.js. Verantwoordelijk voor architectuur, deployment en begeleiding van junioren.</div>
+                    <div class="timeline-title">Gamma</div>
+                    <div class="timeline-company">Vakkenvuller / Kassa</div>
+                    <div class="timeline-desc">Klanten helpen bij het vinden van producten, kassa draaien en creatief meedenken over oplossingen. Samenwerken met collega's en een sterke band opgebouwd in het team.</div>
                 </div>
             </div>
             <div class="timeline-item right">
                 <div class="timeline-content tilt-card">
-                    <div class="timeline-date">2022 – 2024</div>
-                    <div class="timeline-title">Junior Web Developer</div>
-                    <div class="timeline-company">Digital Solutions, Rotterdam</div>
-                    <div class="timeline-desc">Bouwen van maatwerk websites met HTML, CSS, JavaScript en PHP. Focus op performance, SEO en klantcontact.</div>
+                    <div class="timeline-date">2025 – 2026</div>
+                    <div class="timeline-title">Bureau</div>
+                    <div class="timeline-company">Schoolproject – Klantopdrachten</div>
+                    <div class="timeline-desc">Werken aan echte klantprojecten binnen schoolverband. Vereisten analyseren, vragen stellen en oplossingen leveren die voldoen aan de wensen van de klant.</div>
                 </div>
             </div>
             <div class="timeline-item left">
                 <div class="timeline-content tilt-card">
-                    <div class="timeline-date">2021 – 2022</div>
-                    <div class="timeline-title">Stagiair Software Development</div>
-                    <div class="timeline-company">Webstudio Creatief, Utrecht</div>
-                    <div class="timeline-desc">Meegewerkt aan diverse klantprojecten, voornamelijk front-end ontwikkeling en WordPress thema's. Eerste stappen in professioneel versiebeheer met Git.</div>
+                    <div class="timeline-date">2024 – 2026</div>
+                    <div class="timeline-title">Web Development</div>
+                    <div class="timeline-company">Creative Software Development</div>
+                    <div class="timeline-desc">Leren werken met HTML, CSS, JavaScript en PHP. Professionele websites en webapplicaties bouwen met aandacht voor structuur, functionaliteit en gebruiksvriendelijkheid.</div>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content tilt-card">
+                    <div class="timeline-date">2024 – 2025</div>
+                    <div class="timeline-title">Software Development</div>
+                    <div class="timeline-company">Creative Software Development</div>
+                    <div class="timeline-desc">Basisprincipes van softwareontwikkeling, programmeren en probleemoplossend denken. Eerste stappen in de wereld van coderen en applicatiebouw.</div>
                 </div>
             </div>
         </div>
@@ -1139,6 +1190,10 @@
                 <div class="skill-logo skill-git">GH</div>
                 <div class="skill-label">Git & GitHub</div>
             </div>
+            <div class="skill-card">
+                <div class="skill-logo skill-figma">FIG</div>
+                <div class="skill-label">Figma</div>
+            </div>
         </div>
     </section>
 
@@ -1146,6 +1201,18 @@
     <section id="contact" class="contact-section container">
         <h2>Contact</h2>
         <p style="text-align:center; color:var(--text-muted);">Heb je een vraag of een interessant project? Stuur me een bericht!</p>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-icon">✉️</span>
+                <a href="mailto:walid.haawa@gmail.com">walid.haawa@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <a href="tel:+31648585296">+31 6 48585296</a>
+            </div>
+        </div>
+
         <form class="contact-form" id="contactForm">
             <div class="form-group">
                 <label for="name">Naam</label>
@@ -1170,6 +1237,8 @@
             <div class="modal-image-panel">
                 <button id="modalClose" class="modal-close">✕</button>
                 <img id="modalImage" src="" alt="Project image">
+                <!-- AFBEELDINGSTELLER -->
+                <div class="modal-counter" id="modalCounter">1/3</div>
                 <div class="modal-nav">
                     <button id="modalPrev">‹</button>
                     <button id="modalNext">›</button>
@@ -1185,7 +1254,7 @@
     </div>
 
     <footer>
-        <p>© 2026 Jouw Naam – Gemaakt met ❤️ en pure code</p>
+        <p>© 2026 Walid Salhi – Gemaakt met ❤️ en pure code</p>
     </footer>
 
     <script>
@@ -1201,7 +1270,6 @@
             mouseY = e.clientY;
         });
 
-        // Lijst van elementen waarop de cursor moet reageren
         const hoverElements = document.querySelectorAll('a, button, .btn, .github-btn, .project-card, .timeline-content, .tilt-card, .nav a, .project-links a');
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
@@ -1215,13 +1283,11 @@
         });
 
         function animateCursor() {
-            // Stip volgt exact met kleine vertraging (voor vloeiendheid)
             cursorX += (mouseX - cursorX) * 0.3;
             cursorY += (mouseY - cursorY) * 0.3;
             cursor.style.left = cursorX + 'px';
             cursor.style.top = cursorY + 'px';
 
-            // Volger heeft tragere easing
             followerX += (mouseX - followerX) * 0.12;
             followerY += (mouseY - followerY) * 0.12;
             cursorFollower.style.left = followerX + 'px';
@@ -1231,7 +1297,7 @@
         }
         animateCursor();
 
-        // ========== AANGEPASTE SMOOTH SCROLL ==========
+        // ========== SMOOTH SCROLL ==========
         function smoothScrollTo(targetElement) {
             const start = window.pageYOffset;
             const end = targetElement.getBoundingClientRect().top + start;
@@ -1443,6 +1509,7 @@
         const modalClose = document.getElementById('modalClose');
         const modalPrev = document.getElementById('modalPrev');
         const modalNext = document.getElementById('modalNext');
+        const modalCounter = document.getElementById('modalCounter'); // nieuw
 
         const projectData = {
             'one-piece': {
@@ -1488,49 +1555,30 @@
                     'https://raw.githubusercontent.com/LitlleBoi/scouting/main/favicon.png'
                 ]
             },
-            'retro-game': {
-                title: 'Retro Game',
-                description: 'Een browser-game met vanilla JavaScript en Canvas API. Realtime animaties, collision detection en dynamisch scorebord. Volledig speelbaar in de browser.',
-                tags: ['JavaScript', 'HTML5 Canvas', 'CSS', 'Game Dev', 'Animations'],
+            'cursorkiosk': {
+                title: 'Cursor Kiosk',
+                description: 'Een interactieve kiosk voor evenementen, tentoonstellingen of openbare ruimtes. Gebruikers kunnen een cursor bedienen via touch of muis en interacties uitvoeren op een dynamisch scherm. Gebouwd met pure HTML, CSS en JavaScript, volledig responsive en gebruiksvriendelijk.',
+                tags: ['HTML', 'CSS', 'JavaScript', 'Kiosk', 'Interactief', 'Responsive'],
                 links: [
-                    { label: 'Live demo', href: '#' },
-                    { label: 'GitHub', href: '#' }
+                    { label: 'Live demo', href: 'https://u240787.gluwebsite.nl/kiosk/' },
+                    { label: 'GitHub', href: 'https://github.com/LitlleBoi/cursorkiosk' }
                 ],
                 images: [
-                    'https://images.unsplash.com/photo-1614294148960-064c9b7b5c44?w=1200&auto=format&fit=crop',
-                    'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&auto=format&fit=crop'
-                ]
-            },
-            'css-showcase': {
-                title: 'Creative CSS Showcase',
-                description: 'Interactieve pagina die moderne CSS-kracht toont: 3D-transformaties, animations, dark/light thema\'s en responsive design. Pure CSS en JavaScript voor interactie.',
-                tags: ['CSS', 'HTML', 'JavaScript', '3D Transforms', 'Animations'],
-                links: [
-                    { label: 'Live demo', href: '#' },
-                    { label: 'GitHub', href: '#' }
-                ],
-                images: [
-                    'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&auto=format&fit=crop',
-                    'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&auto=format&fit=crop'
-                ]
-            },
-            'blog-platform': {
-                title: 'Blog Platform',
-                description: 'Dynamisch blog met user authenticatie, comment system en REST API. Frontend in JavaScript, backend in PHP met MySQL database. Full CRUD functionaliteit.',
-                tags: ['PHP', 'JavaScript', 'REST API', 'MySQL', 'Authentication'],
-                links: [
-                    { label: 'Live demo', href: '#' },
-                    { label: 'GitHub', href: '#' }
-                ],
-                images: [
-                    'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&auto=format&fit=crop',
-                    'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1200&auto=format&fit=crop'
+                    'assets/img/startscherm.png',
+                    'assets/img/winkelwagen.png'
                 ]
             }
         };
 
         let currentProject = null;
         let currentImageIndex = 0;
+
+        const updateCounter = () => {
+            if (!currentProject) return;
+            const data = projectData[currentProject];
+            const total = data.images.length;
+            modalCounter.textContent = `${currentImageIndex + 1}/${total}`;
+        };
 
         const openModal = (projectKey) => {
             const data = projectData[projectKey];
@@ -1542,6 +1590,7 @@
             modalTags.innerHTML = data.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
             modalLinks.innerHTML = data.links.map(link => `<a href="${link.href}" target="_blank" rel="noopener noreferrer">${link.label}</a>`).join('');
             modalImage.src = data.images[0];
+            updateCounter();
             projectModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         };
@@ -1557,6 +1606,7 @@
             const data = projectData[currentProject];
             currentImageIndex = (currentImageIndex + direction + data.images.length) % data.images.length;
             modalImage.src = data.images[currentImageIndex];
+            updateCounter();
         };
 
         document.querySelectorAll('.project-card').forEach(card => {
@@ -1574,7 +1624,6 @@
         modalPrev.addEventListener('click', () => updateImage(-1));
         modalNext.addEventListener('click', () => updateImage(1));
 
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && projectModal.classList.contains('active')) {
                 closeModal();
@@ -1587,7 +1636,6 @@
             }
         });
 
-        // Scroll indicator
         window.addEventListener('scroll', () => {
             const indicator = document.querySelector('.scroll-indicator');
             if (indicator) indicator.style.opacity = window.scrollY > 100 ? '0' : '1';
