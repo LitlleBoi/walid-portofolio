@@ -993,6 +993,20 @@
     <section id="projecten" class="projects-section container">
         <h2>Mijn Projecten</h2>
         <div class="project-grid">
+            <div class="project-card tilt-card" data-project="one-piece">
+                <div class="project-image" style="background-image: url('assets/img/onepiece.png'); background-position: top center;"></div>
+                <div class="project-content">
+                    <h3>One Piece Characters</h3>
+                    <p>Interactieve webapplicatie gewijd aan One Piece karakters met hun bounties. Bevat volledige CRUD-functionaliteit en inlogsysteem.</p>
+                    <div class="tags">
+                        <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://u240787.gluwebsite.nl/onepiecee/" target="_blank">Live demo</a>
+                        <a href="https://github.com/LitlleBoi/one-piece" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
             <div class="project-card tilt-card" data-project="love-u-festival">
                 <div class="project-image" style="background-image: url('https://raw.githubusercontent.com/LitlleBoi/love-u-festival/main/assets/kaart_festival_no_markers.svg');"></div>
                 <div class="project-content">
@@ -1008,7 +1022,7 @@
                 </div>
             </div>
             <div class="project-card tilt-card" data-project="scouting">
-                <div class="project-image" style="background-image: url('https://raw.githubusercontent.com/LitlleBoi/scouting/main/logo.png'); background-size: contain; background-repeat: no-repeat; background-position: center; height: 180px;"></div>
+                <div class="project-image" style="background-image: url('assets/img/scouting.png'); background-position: top center;"></div>
                 <div class="project-content">
                     <h3>Competentieroos (Scouting)</h3>
                     <p>Zelfreflectie-tool voor Scouting Nederland: beantwoord competenties en bekijk overzichtelijke resultaten.</p>
@@ -1431,6 +1445,21 @@
         const modalNext = document.getElementById('modalNext');
 
         const projectData = {
+            'one-piece': {
+                title: 'One Piece Characters',
+                description: 'Een dynamische webapplicatie gewijd aan One Piece-personages. Gebruikers kunnen naar personages zoeken en hun details of bounties bekijken. Bevat een beveiligd administratiepaneel met volledige CRUD-functionaliteit (Create, Read, Update, Delete) en authenticatie om karakters te beheren.',
+                tags: ['PHP', 'MySQL', 'CSS', 'HTML', 'JavaScript', 'CRUD', 'Authentication'],
+                links: [
+                    { label: 'Live demo', href: 'https://u240787.gluwebsite.nl/onepiecee/' },
+                    { label: 'GitHub', href: 'https://github.com/LitlleBoi/one-piece' }
+                ],
+                images: [
+                    'assets/img/onepiece.png',
+                    'https://raw.githubusercontent.com/LitlleBoi/one-piece/main/image/Wanted.png',
+                    'https://raw.githubusercontent.com/LitlleBoi/one-piece/main/image/search.png',
+                    'https://raw.githubusercontent.com/LitlleBoi/one-piece/main/image/admin.png'
+                ]
+            },
             'love-u-festival': {
                 title: 'Love U Festival',
                 description: 'Festival-app voor nieuwe studenten in Utrecht. Inclusief interactieve kaart, QR-code installaties en multi-language UI. Ontworpen met vanilla JavaScript en real-time geolokatie.',
@@ -1454,6 +1483,7 @@
                     { label: 'GitHub', href: 'https://github.com/LitlleBoi/scouting' }
                 ],
                 images: [
+                    'assets/img/scouting.png',
                     'https://raw.githubusercontent.com/LitlleBoi/scouting/main/logo.png',
                     'https://raw.githubusercontent.com/LitlleBoi/scouting/main/favicon.png'
                 ]
