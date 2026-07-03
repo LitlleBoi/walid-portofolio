@@ -544,6 +544,285 @@
             min-height: 1.5rem;
         }
 
+        /* ========== MODAL POPUP ========== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.72);
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 1.5rem;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal {
+            width: min(1100px, 100%);
+            background: var(--surface);
+            border-radius: 24px;
+            box-shadow: 0 40px 120px rgba(0,0,0,0.45);
+            overflow: hidden;
+            max-height: 90vh;
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 1px;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .modal {
+                grid-template-columns: 1fr;
+                max-height: 95vh;
+            }
+        }
+
+        .modal-image-panel {
+            position: relative;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 360px;
+            overflow: hidden;
+        }
+
+        .modal-image-panel img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 1rem;
+        }
+
+        .modal-nav button {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(15,23,42,0.8);
+            color: white;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .modal-nav button:hover {
+            background: var(--accent);
+        }
+
+        .modal-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(15,23,42,0.8);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: grid;
+            place-items: center;
+            transition: background 0.2s;
+            z-index: 10001;
+        }
+
+        .modal-close:hover {
+            background: var(--accent);
+        }
+
+        .modal h2 {
+            margin: 0 0 0.5rem 0;
+        }
+
+        .modal h2::after {
+            display: none;
+        }
+
+        .modal-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .modal-tags .tag {
+            background: var(--accent);
+            color: var(--bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .modal-links {
+            display: flex;
+            gap: 0.8rem;
+            padding-top: 0.5rem;
+        }
+
+        .modal-links a {
+            background: var(--accent);
+            color: var(--bg);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .modal-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.5) 0%, rgba(30, 41, 59, 0.3) 100%);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .highlight-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-weight: bold;
+            color: var(--bg);
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .highlight-text h3 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text);
+        }
+
+        .highlight-text p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            box-shadow: 0 20px 60px rgba(56, 189, 248, 0.2);
+        }
+
+        .about-image-inner {
+            width: 280px;
+            height: 280px;
+            background: var(--bg);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            font-weight: bold;
+            color: var(--accent);
+            box-shadow: inset 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .about-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -562,7 +841,7 @@
             background: var(--accent);
             border-radius: 50%;
             pointer-events: none;
-            z-index: 9999;
+            z-index: 10001;
             transform: translate(-50%, -50%);
             transition: width 0.2s, height 0.2s, background 0.2s;
             box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent);
@@ -577,6 +856,7 @@
             border: 2px solid rgba(56, 189, 248, 0.5);
             border-radius: 50%;
             pointer-events: none;
+            z-index: 10001;
             z-index: 9998;
             transform: translate(-50%, -50%);
             transition: width 0.3s, height 0.3s, border-color 0.3s, background 0.3s;
@@ -637,6 +917,7 @@
 
     <nav class="nav">
         <a data-target="home">Home</a>
+        <a data-target="about">Over mij</a>
         <a data-target="projecten">Projecten</a>
         <a data-target="ervaring">Ervaring</a>
         <a data-target="skills">Skills</a>
@@ -665,11 +946,54 @@
         <div class="scroll-indicator">↓</div>
     </section>
 
+    <!-- Over Mij -->
+    <section id="about" class="about-section container">
+        <h2>Over Mij</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Hallo! Ik ben een passioneerde full-stack developer met een sterke focus op het creëren van gebruiksvriendelijke en performante weboplossingen. Met meer dan 3 jaar ervaring in web development, specialiseer ik me in het combineren van strakke frontend designs met robuuste backend systems.
+                </p>
+                <p>
+                    Ik ben graag aan het leren en volg de laatste trends in web development nauwlettend. Of het nu gaat om vanilla JavaScript, moderne frameworks of server-side logica met PHP – ik ben altijd klaar voor een nieuwe uitdaging.
+                </p>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">💻</div>
+                        <div class="highlight-text">
+                            <h3>Frontend Development</h3>
+                            <p>HTML5, CSS3, JavaScript en responsive design</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">⚙️</div>
+                        <div class="highlight-text">
+                            <h3>Backend Development</h3>
+                            <p>PHP, MySQL, REST APIs en server logic</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🎨</div>
+                        <div class="highlight-text">
+                            <h3>Creative Design</h3>
+                            <p>UI/UX, animaties en interactieve ervaringen</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="about-image-inner">
+                    <img src="assets/img/overmij.jpeg" alt="Over mij" class="about-photo" onerror="this.style.display='none'" />
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projecten -->
     <section id="projecten" class="projects-section container">
         <h2>Mijn Projecten</h2>
         <div class="project-grid">
-            <div class="project-card tilt-card">
+            <div class="project-card tilt-card" data-project="love-u-festival">
                 <div class="project-image" style="background-image: url('https://raw.githubusercontent.com/LitlleBoi/love-u-festival/main/assets/kaart_festival_no_markers.svg');"></div>
                 <div class="project-content">
                     <h3>Love U Festival</h3>
@@ -683,7 +1007,21 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card tilt-card">
+            <div class="project-card tilt-card" data-project="scouting">
+                <div class="project-image" style="background-image: url('https://raw.githubusercontent.com/LitlleBoi/scouting/main/logo.png'); background-size: contain; background-repeat: no-repeat; background-position: center; height: 180px;"></div>
+                <div class="project-content">
+                    <h3>Competentieroos (Scouting)</h3>
+                    <p>Zelfreflectie-tool voor Scouting Nederland: beantwoord competenties en bekijk overzichtelijke resultaten.</p>
+                    <div class="tags">
+                        <span class="tag">HTML</span><span class="tag">JavaScript</span><span class="tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/LitlleBoi/scouting" target="_blank">GitHub</a>
+                        <a href="https://scouting-q7we.onrender.com" target="_blank">Live demo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card tilt-card" data-project="retro-game">
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1614294148960-064c9b7b5c44?w=600&auto=format&fit=crop');"></div>
                 <div class="project-content">
                     <h3>Retro Game</h3>
@@ -697,7 +1035,7 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card tilt-card">
+            <div class="project-card tilt-card" data-project="css-showcase">
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&auto=format&fit=crop');"></div>
                 <div class="project-content">
                     <h3>Creative CSS Showcase</h3>
@@ -711,7 +1049,7 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card tilt-card">
+            <div class="project-card tilt-card" data-project="blog-platform">
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&auto=format&fit=crop');"></div>
                 <div class="project-content">
                     <h3>Blog Platform</h3>
@@ -811,6 +1149,26 @@
             <div class="form-message" id="formFeedback"></div>
         </form>
     </section>
+
+    <!-- Modal Popup -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal">
+            <div class="modal-image-panel">
+                <button id="modalClose" class="modal-close">✕</button>
+                <img id="modalImage" src="" alt="Project image">
+                <div class="modal-nav">
+                    <button id="modalPrev">‹</button>
+                    <button id="modalNext">›</button>
+                </div>
+            </div>
+            <div class="modal-content">
+                <h2 id="modalTitle"></h2>
+                <p class="modal-description" id="modalDescription"></p>
+                <div class="modal-tags" id="modalTags"></div>
+                <div class="modal-links" id="modalLinks"></div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>© 2026 Jouw Naam – Gemaakt met ❤️ en pure code</p>
@@ -1059,6 +1417,144 @@
             feedback.style.color = '#4ade80';
             form.reset();
             setTimeout(() => { feedback.textContent = ''; }, 4000);
+        });
+
+        // ========== PROJECT MODAL ==========
+        const projectModal = document.getElementById('projectModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalTags = document.getElementById('modalTags');
+        const modalLinks = document.getElementById('modalLinks');
+        const modalClose = document.getElementById('modalClose');
+        const modalPrev = document.getElementById('modalPrev');
+        const modalNext = document.getElementById('modalNext');
+
+        const projectData = {
+            'love-u-festival': {
+                title: 'Love U Festival',
+                description: 'Festival-app voor nieuwe studenten in Utrecht. Inclusief interactieve kaart, QR-code installaties en multi-language UI. Ontworpen met vanilla JavaScript en real-time geolokatie.',
+                tags: ['HTML', 'CSS', 'JavaScript', 'Geolocation', 'Responsive'],
+                links: [
+                    { label: 'Live demo', href: 'https://love-u-festival.onrender.com' },
+                    { label: 'GitHub', href: 'https://github.com/LitlleBoi/love-u-festival' }
+                ],
+                images: [
+                    'https://raw.githubusercontent.com/LitlleBoi/love-u-festival/main/assets/kaart_festival_no_markers.svg',
+                    'https://raw.githubusercontent.com/LitlleBoi/love-u-festival/main/assets/kaart_festival_markers.svg',
+                    'https://raw.githubusercontent.com/LitlleBoi/love-u-festival/main/assets/legenda.svg'
+                ]
+            },
+            'scouting': {
+                title: 'Competentieroos (Scouting)',
+                description: 'Zelfreflectie-tool voor Scouting Nederland: beantwoord vragen over competenties en bekijk overzichtelijke resultaten. Gebouwd met vanilla JavaScript en local storage.',
+                tags: ['HTML', 'CSS', 'JavaScript', 'Local Storage', 'Form Handling'],
+                links: [
+                    { label: 'Live demo', href: 'https://scouting-q7we.onrender.com' },
+                    { label: 'GitHub', href: 'https://github.com/LitlleBoi/scouting' }
+                ],
+                images: [
+                    'https://raw.githubusercontent.com/LitlleBoi/scouting/main/logo.png',
+                    'https://raw.githubusercontent.com/LitlleBoi/scouting/main/favicon.png'
+                ]
+            },
+            'retro-game': {
+                title: 'Retro Game',
+                description: 'Een browser-game met vanilla JavaScript en Canvas API. Realtime animaties, collision detection en dynamisch scorebord. Volledig speelbaar in de browser.',
+                tags: ['JavaScript', 'HTML5 Canvas', 'CSS', 'Game Dev', 'Animations'],
+                links: [
+                    { label: 'Live demo', href: '#' },
+                    { label: 'GitHub', href: '#' }
+                ],
+                images: [
+                    'https://images.unsplash.com/photo-1614294148960-064c9b7b5c44?w=1200&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&auto=format&fit=crop'
+                ]
+            },
+            'css-showcase': {
+                title: 'Creative CSS Showcase',
+                description: 'Interactieve pagina die moderne CSS-kracht toont: 3D-transformaties, animations, dark/light thema\'s en responsive design. Pure CSS en JavaScript voor interactie.',
+                tags: ['CSS', 'HTML', 'JavaScript', '3D Transforms', 'Animations'],
+                links: [
+                    { label: 'Live demo', href: '#' },
+                    { label: 'GitHub', href: '#' }
+                ],
+                images: [
+                    'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&auto=format&fit=crop'
+                ]
+            },
+            'blog-platform': {
+                title: 'Blog Platform',
+                description: 'Dynamisch blog met user authenticatie, comment system en REST API. Frontend in JavaScript, backend in PHP met MySQL database. Full CRUD functionaliteit.',
+                tags: ['PHP', 'JavaScript', 'REST API', 'MySQL', 'Authentication'],
+                links: [
+                    { label: 'Live demo', href: '#' },
+                    { label: 'GitHub', href: '#' }
+                ],
+                images: [
+                    'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1200&auto=format&fit=crop'
+                ]
+            }
+        };
+
+        let currentProject = null;
+        let currentImageIndex = 0;
+
+        const openModal = (projectKey) => {
+            const data = projectData[projectKey];
+            if (!data) return;
+            currentProject = projectKey;
+            currentImageIndex = 0;
+            modalTitle.textContent = data.title;
+            modalDescription.textContent = data.description;
+            modalTags.innerHTML = data.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+            modalLinks.innerHTML = data.links.map(link => `<a href="${link.href}" target="_blank" rel="noopener noreferrer">${link.label}</a>`).join('');
+            modalImage.src = data.images[0];
+            projectModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeModal = () => {
+            projectModal.classList.remove('active');
+            currentProject = null;
+            document.body.style.overflow = 'auto';
+        };
+
+        const updateImage = (direction) => {
+            if (!currentProject) return;
+            const data = projectData[currentProject];
+            currentImageIndex = (currentImageIndex + direction + data.images.length) % data.images.length;
+            modalImage.src = data.images[currentImageIndex];
+        };
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('a')) return;
+                const projectKey = card.dataset.project;
+                openModal(projectKey);
+            });
+        });
+
+        modalClose.addEventListener('click', closeModal);
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) closeModal();
+        });
+        modalPrev.addEventListener('click', () => updateImage(-1));
+        modalNext.addEventListener('click', () => updateImage(1));
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+                closeModal();
+            }
+            if (e.key === 'ArrowLeft' && projectModal.classList.contains('active')) {
+                updateImage(-1);
+            }
+            if (e.key === 'ArrowRight' && projectModal.classList.contains('active')) {
+                updateImage(1);
+            }
         });
 
         // Scroll indicator
