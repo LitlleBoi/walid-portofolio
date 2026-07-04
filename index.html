@@ -1120,6 +1120,21 @@
                     </div>
                 </div>
             </div>
+            <!-- ===== NIEUW PROJECT: BAD ICE CREAM ===== -->
+            <div class="project-card tilt-card" data-project="badicecream">
+                <div class="project-image" style="background-image: url('assets/img/badicecream.png'); background-position: center; background-size: cover;"></div>
+                <div class="project-content">
+                    <h3>Bad Ice Cream</h3>
+                    <p>Een arcade-game waarin je alle fruitjes moet verzamelen zonder de monsters aan te raken. Gebouwd met JavaScript en de Canvas API.</p>
+                    <div class="tags">
+                        <span class="tag">JavaScript</span><span class="tag">HTML5 Canvas</span><span class="tag">Game Dev</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://badicecream.onrender.com" target="_blank">Live demo</a>
+                        <a href="https://github.com/Samboterham/badIceCream" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1509,7 +1524,7 @@
         const modalClose = document.getElementById('modalClose');
         const modalPrev = document.getElementById('modalPrev');
         const modalNext = document.getElementById('modalNext');
-        const modalCounter = document.getElementById('modalCounter'); // nieuw
+        const modalCounter = document.getElementById('modalCounter');
 
         const projectData = {
             'one-piece': {
@@ -1566,6 +1581,20 @@
                 images: [
                     'assets/img/startscherm.png',
                     'assets/img/winkelwagen.png'
+                ]
+            },
+            // ===== NIEUW PROJECT: BAD ICE CREAM =====
+            'badicecream': {
+                title: 'Bad Ice Cream',
+                description: 'Een arcade-game waarin je alle fruitjes moet verzamelen zonder de monsters aan te raken. Gebouwd met JavaScript en de Canvas API. Bestuur je personage met de pijltjestoetsen en ontwijk de vijanden!',
+                tags: ['JavaScript', 'HTML5 Canvas', 'Game Dev', 'Collision Detection'],
+                links: [
+                    { label: 'Live demo', href: 'https://badicecream.onrender.com' },
+                    { label: 'GitHub', href: 'https://github.com/Samboterham/badIceCream' }
+                ],
+                images: [
+                    'assets/img/badicecream.png',
+                    'assets/img/badicecream2.png'
                 ]
             }
         };
